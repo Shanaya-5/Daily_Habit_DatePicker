@@ -47,16 +47,7 @@
 <body>
     <input type="text" id="datepicker">
 
-    <script>
-    $(function() {
-        $("#datepicker").datepicker({
-            minDate: 0,  // Disable past dates
-            dateFormat: "yy-mm-dd",  // Ensure correct format
-            onSelect: function(dateText) {
-                sendDateToThunkable(dateText);
-            }
-        });
-    });
+ <script>
 
 function sendDateToThunkable(selectedDate) {
     window.parent.postMessage(selectedDate, "*"); // Send message to Thunkable
@@ -71,8 +62,7 @@ $(function() {
         }
     });
 });
-
-        
-    </script>
+      
+</script>
 </body>
 </html>
