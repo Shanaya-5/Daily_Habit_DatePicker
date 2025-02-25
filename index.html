@@ -7,14 +7,42 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <style>
-        #datepicker {
-            width: 500px;  /* Adjust width */
-            height: 150px;  /* Adjust height */
-            padding: 50px;  /* Add padding if needed */
-            font-size: 75px;  /* Adjust font size */
-            font-weight: bold;
-        }
-    </style>
+    #datepicker {
+        width: 500px;
+        height: 150px;
+        padding: 50px;
+        font-size: 75px;
+        font-weight: bold;
+    }
+
+    /* Increase size of jQuery UI Datepicker */
+    .ui-datepicker {
+        transform: scale(2);
+        transform-origin: top left;
+    }
+
+    /* Adjust font and button sizes */
+    .ui-datepicker td span, 
+    .ui-datepicker td a {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    .ui-datepicker .ui-datepicker-title {
+        font-size: 28px;
+    }
+
+    .ui-datepicker .ui-datepicker-prev, 
+    .ui-datepicker .ui-datepicker-next {
+        transform: scale(2);
+    }
+
+    .ui-datepicker {
+        width: 400px;
+        padding: 20px;
+    }
+</style>
+ 
 </head>
 <body>
     <input type="text" id="datepicker">
