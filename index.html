@@ -60,7 +60,7 @@ function sendDateToThunkable(selectedDate) {
 $(function() {
     $("#datepicker").datepicker({
         minDate: 0,  
-        dateFormat: "mm/dd/yy",
+        dateFormat: "yy-mm-dd",
         onSelect: function(dateText) {
             sendDateToThunkable(dateText);
         }
