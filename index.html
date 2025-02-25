@@ -6,21 +6,37 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    	<style>
+    <style>
         #datepicker {
-            width: 500px;  /* Change the width to your desired size */
-            height: 150px;  /* Change the height to your desired size */
+            width: 500px;  /* Adjust width */
+            height: 150px;  /* Adjust height */
             padding: 50px;  /* Add padding if needed */
-            font-size: 75px;  /* Adjust the font size */
+            font-size: 75px;  /* Adjust font size */
             font-weight: bold;
-        } </style>
+        }
+    </style>
 </head>
 <body>
     <input type="text" id="datepicker">
+
     <script>
         $(function() {
-            $("#datepicker").datepicker({ minDate: 0 });
+            $("#datepicker").datepicker({
+                minDate: 0,  // Disable past dates
+                dateFormat: "yy-mm-dd",  // Ensure a proper date format
+                onSelect: function(dateText) {
+                    sendDateToThunkable(dateText);
+                }
+            });
         });
+
+        function sendDateToThunkable(selectedDate) {
+            // Option 1: Use Thunkable Web Viewer callback
+            window.location = "thunkable://" + selectedDate;
+
+            // Option 2 (Alternative): Use postMessage for Web Viewer (safer)
+            window.parent.postMessage(selectedDate, "*");
+        }
     </script>
 </body>
 </html>
