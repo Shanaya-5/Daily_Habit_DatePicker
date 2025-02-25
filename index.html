@@ -58,9 +58,21 @@
         });
     });
 
-    function sendDateToThunkable(selectedDate) {
-        window.parent.postMessage(selectedDate, "*"); // Send message to Thunkable
-    }
+function sendDateToThunkable(selectedDate) {
+    window.parent.postMessage(selectedDate, "*"); // Send message to Thunkable
+}
+
+$(function() {
+    $("#datepicker").datepicker({
+        minDate: 0,  
+        dateFormat: "yy-mm-dd",
+        onSelect: function(dateText) {
+            sendDateToThunkable(dateText);
+        }
+    });
+});
+
+        
     </script>
 </body>
 </html>
