@@ -48,23 +48,19 @@
     <input type="text" id="datepicker">
 
     <script>
-        $(function() {
-            $("#datepicker").datepicker({
-                minDate: 0,  // Disable past dates
-                dateFormat: "yy-mm-dd",  // Ensure a proper date format
-                onSelect: function(dateText) {
-                    sendDateToThunkable(dateText);
-                }
-            });
+    $(function() {
+        $("#datepicker").datepicker({
+            minDate: 0,  // Disable past dates
+            dateFormat: "yy-mm-dd",  // Ensure correct format
+            onSelect: function(dateText) {
+                sendDateToThunkable(dateText);
+            }
         });
+    });
 
-        function sendDateToThunkable(selectedDate) {
-            // Option 1: Use Thunkable Web Viewer callback
-            window.location = "thunkable://" + selectedDate;
-
-            // Option 2 (Alternative): Use postMessage for Web Viewer (safer)
-            window.parent.postMessage(selectedDate, "*");
-        }
+    function sendDateToThunkable(selectedDate) {
+        window.parent.postMessage(selectedDate, "*"); // Send message to Thunkable
+    }
     </script>
 </body>
 </html>
