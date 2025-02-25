@@ -50,6 +50,7 @@
  <script>
 
 function sendDateToThunkable(selectedDate) {
+     console.log("Sending date to Thunkable:", selectedDate); // Debugging in browser console
     window.parent.postMessage(selectedDate, "*"); // Send message to Thunkable
 }
 
