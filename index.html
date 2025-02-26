@@ -47,12 +47,14 @@
 </head>
 <body>
     <input type="text" id="datepicker">
+    <p id="Click to select date">Original text</p>
 
  <script>
 
 function sendDateToThunkable(selectedDate) {
      console.log("Sending date to Thunkable:", selectedDate); // Debugging in browser console
     //window.parent.postMessage(selectedDate, "*"); // Send message to Thunkable
+    document.getElementById("Click to select date")
      ThunkableWebviewerExtension.postMessage(selectedDate, "*");
 }
  
